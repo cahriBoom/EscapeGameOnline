@@ -1,18 +1,6 @@
 public class Challenger extends Player {
 
 
-    private Board tab = new Board();
-    private String tabCode = tab.getCombi();
-    private String combiPlayer = "";
-
-    //Getter and Setter
-    public String getCombiplayer(){
-        return (combiPlayer);
-    }
-    public void setCombiPlayer(String newCombiPlayer){
-        this.combiPlayer = newCombiPlayer;
-    }
-
     //Make the game in challenge Mode
     private void ChallengerMode(){
         tab.createBoard();
@@ -40,13 +28,30 @@ public class Challenger extends Player {
         }
     }
 
+    // Test how many numbers remain before the player win
+    private int testNbCharRestant(){
+        int longeurString = tabCode.length();
+        int numberRestant = longeurString;
+        for(int i =0; i<longeurString; i++){
+            if(combiPlayer.charAt(i)=='='){
+                numberRestant +=1;
+            }
+        }
+        return numberRestant;
+    }
+
     // Repeat each turn until somebody win the game
     private void turnRepeatChallengerMode(){
         int nbTry = 3;
+        int numbRestant;
         while(nbTry != 0){
             this.askPlayer();
             this.testAnswer();
-
+            numbRestant = this.testNbCharRestant();
+            if (numbRestant==0){
+                System.out.println("You win!");
+                return;
+            }
             nbTry -=1;
         }
 

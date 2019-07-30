@@ -12,20 +12,15 @@ public class Defenser extends Player {
 
     private void testDefense(){
         int triesLeft = 3;
+        int combiComputerInt;
         while(triesLeft != 0){
             for (int i = 0; i<combiComputer.length(); i++){
                 if(combiComputer.charAt(i)<combiPlayerDef.charAt(i)){
-                    //combiComputer.charAt(i) = '+';
+                    combiComputerInt = combiComputer.charAt(i);
+                    combiComputerInt +=1;
+                    //combiComputer.charAt(i) = combiComputerInt - 48;
                 }
             }
-            /*code = this.crackTheCode(cracking);
-            if(code[0]=='='&& code[1]=='='&& code[2]=='=' && code[3]=='='){
-                System.out.println("I found your code, I've won ");
-                return;
-            }
-            code = this.foundRightNumber(cracking, code);
-            System.out.println(code);*/
-
             triesLeft -=1;
         }
         System.out.println("I didn't found your code, You've won");

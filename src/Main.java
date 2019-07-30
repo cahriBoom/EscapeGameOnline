@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board Tableau = new Board();
-        //Tableau.printMainMenu();
+        Affichage a = new Affichage();
+        a.printMainMenu();
     }
 }

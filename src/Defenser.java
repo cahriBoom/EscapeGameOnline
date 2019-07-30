@@ -1,7 +1,8 @@
 public class Defenser extends Player {
 
-    private String combiPlayerDef = combiPlayer;
-    private String combiComputer = tab.getCombi();
+    private Player player = new Player();
+    private Player computer = new Player();
+    private Board tab = new Board();
 
     //Make the game in Defense mode
     private void Defense(){
@@ -10,14 +11,14 @@ public class Defenser extends Player {
         this.testDefense();
     }
 
-    private void testDefense(){
+    public void testDefense(){
         int triesLeft = 3;
         int combiComputerInt;
         while(triesLeft != 0){
-            for (int i = 0; i<combiComputer.length(); i++){
-                if(combiComputer.charAt(i)<combiPlayerDef.charAt(i)){
-                    combiComputerInt = combiComputer.charAt(i);
-                    combiComputerInt +=1;
+            for (int i = 0; i<computer.getCombinaison().length(); i++){
+                if(computer.getCombinaison().charAt(i)<player.getCombinaison().charAt(i)){
+                    combiComputerInt = computer.getCombinaison().charAt(i);
+                    //combiComputerInt +=1;
                     //combiComputer.charAt(i) = combiComputerInt - 48;
                 }
             }

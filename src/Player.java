@@ -2,16 +2,14 @@ import java.util.Scanner;
 
 public class Player {
 
-    public Board tab = new Board();
-    public String tabCode = tab.getCombi();
-    public String combiPlayer = "";
+    private String combinaison = " ";
 
     //Getter and Setter
-    public String getCombiplayer(){
-        return (combiPlayer);
+    public String getCombinaison(){
+        return (this.combinaison);
     }
-    public void setCombiPlayer(String newCombiPlayer){
-        this.combiPlayer = newCombiPlayer;
+    public void setCombinaison(String newCombinaison){
+        this.combinaison = newCombinaison;
     }
 
     // Ask the player his response for cracking the code
@@ -19,6 +17,6 @@ public class Player {
         Scanner sc = new Scanner(System.in);
         System.out.print("Proposition : ");
         String choosenNumbers = sc.nextLine();
-        tab.setCombinaison(choosenNumbers);
+        this.setCombinaison(choosenNumbers);
     }
 }

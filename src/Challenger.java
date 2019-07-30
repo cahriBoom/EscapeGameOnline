@@ -1,8 +1,11 @@
 public class Challenger extends Player {
 
+    private Player player = new Player();
+    private Player computer = new Player();
+    private Board tab = new Board();
 
     //Make the game in challenge Mode
-    private void ChallengerMode(){
+    public void ChallengerMode(){
         tab.createBoard();
         tab.printCode();
         System.out.println(" ");
@@ -13,11 +16,11 @@ public class Challenger extends Player {
     // Check if the answer is the same as the code.
     private void testAnswer() {
         System.out.print("Response : ");
-        if(tabCode.length()==combiPlayer.length()){
-            for (int i = 0; i<tabCode.length(); i++){
-                if(tabCode.charAt(i)>combiPlayer.charAt(i)){
+        if(computer.getCombinaison().length()==player.getCombinaison().length()){
+            for (int i = 0; i<computer.getCombinaison().length(); i++){
+                if(computer.getCombinaison().charAt(i)>player.getCombinaison().charAt(i)){
                     System.out.print('+');
-                }else if(tabCode.charAt(i)<combiPlayer.charAt(i)){
+                }else if(computer.getCombinaison().charAt(i)<player.getCombinaison().charAt(i)){
                     System.out.print('-');
                 }else{
                     System.out.print('=');
@@ -30,10 +33,10 @@ public class Challenger extends Player {
 
     // Test how many numbers remain before the player win
     private int testNbCharRestant(){
-        int longeurString = tabCode.length();
+        int longeurString = computer.getCombinaison().length();
         int numberRestant = longeurString;
         for(int i =0; i<longeurString; i++){
-            if(combiPlayer.charAt(i)=='='){
+            if(player.getCombinaison().charAt(i)=='='){
                 numberRestant +=1;
             }
         }

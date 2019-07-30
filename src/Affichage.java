@@ -2,8 +2,10 @@ import java.util.Scanner;
 
 public class Affichage {
 
-    /*//Print and navigate in the main menu
+    //Print and navigate in the main menu
     public void printMainMenu(){
+        Challenger challenger = new Challenger();
+        Defenser defenser = new Defenser();
         Scanner sc = new Scanner(System.in);
         System.out.println("1- Challenger");
         System.out.println("2- Defense");
@@ -13,10 +15,10 @@ public class Affichage {
         int entryMenu = sc.nextInt();
         switch(entryMenu) {
             case 1:
-                this.Challenger();
+                challenger.ChallengerMode();
                 break;
             case 2:
-                this.Defense();
+                defenser.testDefense();
                 break;
             case 3:
                 //this.Duel();
@@ -27,5 +29,5 @@ public class Affichage {
             default:
                 System.out.println("Choose a number between 1 and 4");
         }
-    }*/
+    }
 }

@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Affichage {
 
+
     //Print and navigate in the main menu
-    public void printMainMenu(){
+    public void printMainMenu(int nb){
         Challenger challenger = new Challenger();
         Defenser defenser = new Defenser();
         Scanner sc = new Scanner(System.in);
@@ -15,7 +16,7 @@ public class Affichage {
         int entryMenu = sc.nextInt();
         switch(entryMenu) {
             case 1:
-                challenger.ChallengerMode();
+                challenger.ChallengerMode(nb);
                 break;
             case 2:
                 defenser.testDefense();

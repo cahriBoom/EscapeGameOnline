@@ -7,7 +7,7 @@ public class Defenser extends Player {
     //Make the game in Defense mode
     private void Defense(){
         //tab.createBoard();
-        this.askPlayer();
+        //this.askPlayer();
         this.testDefense();
     }
 

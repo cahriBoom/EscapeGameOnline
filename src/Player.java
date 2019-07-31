@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -12,11 +13,22 @@ public class Player {
         this.combinaison = newCombinaison;
     }
 
-    // Ask the player his response for cracking the code
-    public void askPlayer() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Proposition : ");
-        String choosenNumbers = sc.nextLine();
-        this.setCombinaison(choosenNumbers);
+    // Create a board with X random number.
+    public void createBoard(int nb) {
+        Random randomGenerator = new Random();
+        String combiRandom = "";
+        for (int i = 0; i < nb; i++) {
+            int randomInt = randomGenerator.nextInt(9);
+            combiRandom += Integer.toString(randomInt);
+            this.setCombinaison(combiRandom);
+        }
+    }
+
+    // Test each values of the board.
+    public void printCode() {
+        String combiPlayer = this.getCombinaison();
+        System.out.print(combiPlayer);
+
     }
 }
+

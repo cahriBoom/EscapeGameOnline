@@ -1,21 +1,33 @@
+import java.util.Scanner;
+
 public class Challenger extends Player {
 
     private Player player = new Player();
     private Player computer = new Player();
-    private Board tab = new Board();
+    //private Player computer = new Player();
 
     //Make the game in challenge Mode
-    public void ChallengerMode(){
-        tab.createBoard();
-        tab.printCode();
+    public void ChallengerMode(int nb){
+        computer.createBoard(nb);
+        computer.printCode();
         System.out.println(" ");
         System.out.println("/////////////////////////////////////");
         this.turnRepeatChallengerMode();
     }
 
+    // Ask the player his response for cracking the code
+    public void askPlayer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Proposition : ");
+        String choosenNumbers = sc.nextLine();
+        player.setCombinaison(choosenNumbers);
+    }
+
+
     // Check if the answer is the same as the code.
     private void testAnswer() {
         System.out.print("Response : ");
+
         if(computer.getCombinaison().length()==player.getCombinaison().length()){
             for (int i = 0; i<computer.getCombinaison().length(); i++){
                 if(computer.getCombinaison().charAt(i)>player.getCombinaison().charAt(i)){
@@ -26,6 +38,7 @@ public class Challenger extends Player {
                     System.out.print('=');
                 }
             }
+            System.out.println(" ");
         }else{
             System.out.println("Not enough numbers !");
         }
@@ -36,8 +49,8 @@ public class Challenger extends Player {
         int longeurString = computer.getCombinaison().length();
         int numberRestant = longeurString;
         for(int i =0; i<longeurString; i++){
-            if(player.getCombinaison().charAt(i)=='='){
-                numberRestant +=1;
+            if(computer.getCombinaison().charAt(i)==player.getCombinaison().charAt(i)){
+                numberRestant -=1;
             }
         }
         return numberRestant;
@@ -57,6 +70,7 @@ public class Challenger extends Player {
             }
             nbTry -=1;
         }
-
+        System.out.println("I win !");
+        System.out.println("The Code was :" + computer.getCombinaison());
     }
 }

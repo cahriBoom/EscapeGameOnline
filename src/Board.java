@@ -2,27 +2,27 @@ import java.util.Random;
 
 public class Board {
 
-    Player player = new Player();
+    //Player playerC = new Player();
     // Make the game in Duel mode
     private void Duel(){
 
     }
-
+    /*
     // Create a board with X random number.
-    public void createBoard() {
+    public void createBoard(int nb) {
             Random randomGenerator = new Random();
-            String combiPlayer = player.getCombinaison();
-            for (int i = 0; i < combiPlayer.length(); i++) {
+            String combiRandom = "";
+            for (int i = 0; i < nb; i++) {
                 int randomInt = randomGenerator.nextInt(9);
-                combiPlayer += Integer.toString(randomInt);
+                combiRandom += Integer.toString(randomInt);
+                playerC.setCombinaison(combiRandom);
         }
     }
 
     // Test each values of the board.
     public void printCode() {
-        String combiPlayer = player.getCombinaison();
-        for (int i = 0; i < combiPlayer.length(); i++) {
-            System.out.print(combiPlayer);
-        }
-    }
+        String combiPlayer = playerC.getCombinaison();
+        System.out.print(combiPlayer);
+
+    }*/
 }

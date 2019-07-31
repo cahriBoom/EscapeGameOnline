@@ -2,28 +2,32 @@ public class Defenser extends Player {
 
     private Player player = new Player();
     private Player computer = new Player();
-    private Board tab = new Board();
+    private String symboleCode = "";
 
     //Make the game in Defense mode
-    private void Defense(){
-        //tab.createBoard();
-        //this.askPlayer();
+    public void Defense(int nb){
+        computer.createBoard(nb);
+        player.askPlayer();
         this.testDefense();
     }
 
     public void testDefense(){
         int triesLeft = 3;
-        int combiComputerInt;
+        String symbole = "";
         while(triesLeft != 0){
-            for (int i = 0; i<computer.getCombinaison().length(); i++){
-                if(computer.getCombinaison().charAt(i)<player.getCombinaison().charAt(i)){
-                    combiComputerInt = computer.getCombinaison().charAt(i);
-                    //combiComputerInt +=1;
-                    //combiComputer.charAt(i) = combiComputerInt - 48;
+            for (int i = 0; i<computer.getCombinaison().length(); i++) {
+                if (computer.getCombinaison().charAt(i) < player.getCombinaison().charAt(i)) {
+                    symbole = "+";
+                } else if (computer.getCombinaison().charAt(i) > player.getCombinaison().charAt(i)) {
+                    symbole = "-";
+                } else {
+                    symbole = "=";
                 }
+                symboleCode += symbole;
             }
             triesLeft -=1;
         }
+        System.out.println("this is symboleCode : " + symboleCode);
         System.out.println("I didn't found your code, You've won");
     }
 

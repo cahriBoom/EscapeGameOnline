@@ -24,6 +24,13 @@ public class Player {
         }
     }
 
+    // Ask the player his response for cracking the code
+    public void askPlayer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Proposition : ");
+        String choosenNumbers = sc.nextLine();
+        this.setCombinaison(choosenNumbers);
+    }
     // Test each values of the board.
     public void printCode() {
         String combiPlayer = this.getCombinaison();

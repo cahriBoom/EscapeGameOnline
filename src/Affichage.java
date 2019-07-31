@@ -19,7 +19,7 @@ public class Affichage {
                 challenger.ChallengerMode(nb);
                 break;
             case 2:
-                defenser.testDefense();
+                defenser.Defense(nb);
                 break;
             case 3:
                 //this.Duel();

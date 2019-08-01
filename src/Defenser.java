@@ -5,7 +5,7 @@ public class Defenser extends Player {
 
     //Make the game in Defense mode
     public void Defense(int nb){
-        int nbLife = 3;
+        int nbLife = 5;
         computer.createBoard(nb);
         player.askPlayer();
         System.out.println("Code Ordi : "  + computer.getCombinaison());
@@ -13,9 +13,13 @@ public class Defenser extends Player {
             String chaine = this.testDefense();
             this.incrementCode(chaine);
             System.out.println("New computer combinaison : " + computer.getCombinaison());
-            System.out.println("New computer combinaison longeur : " + computer.getCombinaison().length());
+            if(this.isFinish(chaine)){
+                System.out.println("I win");
+                return;
+            }
             nbLife -=1;
         }
+        System.out.println("You win");
     }
 
     private String testDefense(){
@@ -34,6 +38,22 @@ public class Defenser extends Player {
         return(symboleCode);
     }
 
+    private boolean isFinish(String Code){
+        int longeurChaine = Code.length();
+        int compteur = 0;
+        for (int i=0; i<longeurChaine;i++){
+            if (Code.charAt(i)=='='){
+                compteur +=1;
+            }else{
+                compteur =0;
+            }
+        }
+        if(compteur==longeurChaine){
+            return true;
+        }
+        return false;
+    }
+
     // Allow the computer to Attack the code.
     private void incrementCode(String Code){
         int codeInt=0;
@@ -48,10 +68,8 @@ public class Defenser extends Player {
             }else{
                 codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
             }
-            System.out.println("code Int : " + codeInt);
             newChaine += codeInt;
         }
-        //System.out.println("new Chaine : "+ newChaine);
         computer.setCombinaison(newChaine);
     }
 }

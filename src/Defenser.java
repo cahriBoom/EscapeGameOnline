@@ -2,76 +2,56 @@ public class Defenser extends Player {
 
     private Player player = new Player();
     private Player computer = new Player();
-    private String symboleCode = "";
 
     //Make the game in Defense mode
     public void Defense(int nb){
+        int nbLife = 3;
         computer.createBoard(nb);
         player.askPlayer();
-        this.testDefense();
+        System.out.println("Code Ordi : "  + computer.getCombinaison());
+        while(nbLife!=0){
+            String chaine = this.testDefense();
+            this.incrementCode(chaine);
+            System.out.println("New computer combinaison : " + computer.getCombinaison());
+            System.out.println("New computer combinaison longeur : " + computer.getCombinaison().length());
+            nbLife -=1;
+        }
     }
 
-    public void testDefense(){
-        int triesLeft = 3;
+    private String testDefense(){
         String symbole = "";
-        while(triesLeft != 0){
-            for (int i = 0; i<computer.getCombinaison().length(); i++) {
-                if (computer.getCombinaison().charAt(i) < player.getCombinaison().charAt(i)) {
-                    symbole = "+";
-                } else if (computer.getCombinaison().charAt(i) > player.getCombinaison().charAt(i)) {
-                    symbole = "-";
-                } else {
-                    symbole = "=";
-                }
-                symboleCode += symbole;
+        String symboleCode = "";
+        for (int i = 0; i<computer.getCombinaison().length(); i++) {
+            if (computer.getCombinaison().charAt(i) < player.getCombinaison().charAt(i)) {
+                symbole = "+";
+            } else if (computer.getCombinaison().charAt(i) > player.getCombinaison().charAt(i)) {
+                symbole = "-";
+            } else {
+                symbole = "=";
             }
-            triesLeft -=1;
+            symboleCode += symbole;
         }
-        System.out.println("this is symboleCode : " + symboleCode);
-        System.out.println("I didn't found your code, You've won");
+        return(symboleCode);
     }
 
     // Allow the computer to Attack the code.
-    /*private char[] crackTheCode(int cracking[]){
-        char code[]={' ',' ',' ',' '};
-        for (int i =0; i<this.boardResponseInt.length; i++){
-            if(cracking[i]<this.boardResponseInt[i]){
-                code[i] = '-';
-            }else if(cracking[i]>this.boardResponseInt[i]){
-                code[i] = '+';
+    private void incrementCode(String Code){
+        int codeInt=0;
+        String newChaine="";
+        for(int i = 0; i<Code.length();i++){
+            if (Code.charAt(i)=='+'){
+                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
+                codeInt +=1;
+            }else if(Code.charAt(i)=='-'){
+                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
+                codeInt -= 1;
             }else{
-                code[i] = '=';
+                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
             }
+            System.out.println("code Int : " + codeInt);
+            newChaine += codeInt;
         }
-        return (code);
+        //System.out.println("new Chaine : "+ newChaine);
+        computer.setCombinaison(newChaine);
     }
-
-    // AI try to crack the code by implementing his values by 1 and update the + - = response
-    private char[] foundRightNumber(int crack[], char code[]){
-        if(code[0]=='-'){
-            crack[0] += 1;
-        }
-        if(code[1]=='-'){
-            crack[1] += 1;
-        }
-        if(code[2]=='-'){
-            crack[2] += 1;
-        }
-        if(code[3]=='-'){
-            crack[3] += 1;
-        }
-        if(code[0]=='+'){
-            crack[0] -= 1;
-        }
-        if(code[1]=='+'){
-            crack[1] -= 1;
-        }
-        if(code[2]=='+'){
-            crack[2] -= 1;
-        }
-        if(code[3]=='+'){
-            crack[3] -= 1;
-        }
-        return (code);
-    }*/
 }

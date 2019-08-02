@@ -24,10 +24,19 @@ public class Player {
         }
     }
 
+    public String createDefaultCode(int nb){
+        String code="";
+        while(nb !=0){
+            code +=5;
+            nb-=1;
+        }
+        return code;
+    }
+
     // Ask the player his response for cracking the code
     public void askPlayer() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Proposition : ");
+        System.out.print("Tap your code : ");
         String choosenNumbers = sc.nextLine();
         this.setCombinaison(choosenNumbers);
     }

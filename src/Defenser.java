@@ -5,14 +5,16 @@ public class Defenser extends Player {
 
     //Make the game in Defense mode
     public void Defense(int nb){
-        int nbLife = 5;
-        computer.createBoard(nb);
+        int nbLife = 3;
+        String newChaine ="";
+        String computerDefaultCode = computer.createDefaultCode(nb);
         player.askPlayer();
-        System.out.println("Code Ordi : "  + computer.getCombinaison());
+        System.out.println("Code Ordi : "  + computerDefaultCode);
+        newChaine = computerDefaultCode;
         while(nbLife!=0){
-            String chaine = this.testDefense();
-            this.incrementCode(chaine);
-            System.out.println("New computer combinaison : " + computer.getCombinaison());
+            String chaine = this.testDefense(newChaine);
+            newChaine = this.incrementCode(chaine, newChaine);
+            System.out.println("New computer combinaison : " + newChaine);
             if(this.isFinish(chaine)){
                 System.out.println("I win");
                 return;
@@ -22,13 +24,13 @@ public class Defenser extends Player {
         System.out.println("You win");
     }
 
-    private String testDefense(){
+    private String testDefense(String code){
         String symbole = "";
         String symboleCode = "";
-        for (int i = 0; i<computer.getCombinaison().length(); i++) {
-            if (computer.getCombinaison().charAt(i) < player.getCombinaison().charAt(i)) {
+        for (int i = 0; i<code.length(); i++) {
+            if (code.charAt(i) < player.getCombinaison().charAt(i)) {
                 symbole = "+";
-            } else if (computer.getCombinaison().charAt(i) > player.getCombinaison().charAt(i)) {
+            } else if (code.charAt(i) > player.getCombinaison().charAt(i)) {
                 symbole = "-";
             } else {
                 symbole = "=";
@@ -55,21 +57,21 @@ public class Defenser extends Player {
     }
 
     // Allow the computer to Attack the code.
-    private void incrementCode(String Code){
+    private String incrementCode(String Code, String oldChaine){
         int codeInt=0;
         String newChaine="";
         for(int i = 0; i<Code.length();i++){
             if (Code.charAt(i)=='+'){
-                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
+                codeInt = Character.getNumericValue(oldChaine.charAt(i));
                 codeInt +=1;
             }else if(Code.charAt(i)=='-'){
-                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
+                codeInt = Character.getNumericValue(oldChaine.charAt(i));
                 codeInt -= 1;
             }else{
-                codeInt = Character.getNumericValue(computer.getCombinaison().charAt(i));
+                codeInt = Character.getNumericValue(oldChaine.charAt(i));
             }
             newChaine += codeInt;
         }
-        computer.setCombinaison(newChaine);
+        return (newChaine);
     }
 }

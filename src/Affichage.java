@@ -7,6 +7,7 @@ public class Affichage {
     public void printMainMenu(int nb){
         Challenger challenger = new Challenger();
         Defenser defenser = new Defenser();
+        Board gameMode = new Board();
         Scanner sc = new Scanner(System.in);
         System.out.println("1- Challenger");
         System.out.println("2- Defense");
@@ -22,7 +23,7 @@ public class Affichage {
                 defenser.Defense(nb);
                 break;
             case 3:
-                //this.Duel();
+                gameMode.Duel(nb);
                 break;
             case 4:
                 System.out.println("Bye");

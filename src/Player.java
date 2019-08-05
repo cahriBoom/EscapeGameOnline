@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Player {
 
-    private String combinaison = " ";
+    private String combinaison = "";
 
     //Getter and Setter
     public String getCombinaison(){
@@ -34,12 +34,12 @@ public class Player {
     }
 
     // Ask the player his response for cracking the code
-    public void askPlayer() {
+    /*public void askPlayer() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Tap your code : ");
         String choosenNumbers = sc.nextLine();
         this.setCombinaison(choosenNumbers);
-    }
+    }*/
     // Test each values of the board.
     public void printCode() {
         String combiPlayer = this.getCombinaison();

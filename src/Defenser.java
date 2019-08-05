@@ -1,45 +1,40 @@
+import java.util.Scanner;
+
 public class Defenser extends Player {
 
-    private Player player = new Player();
+    private Challenger player = new Challenger();
     private Player computer = new Player();
 
     //Make the game in Defense mode
     public void Defense(int nb){
-        int nbLife = 3;
+        int nbTry = 1;
         String newChaine ="";
         String computerDefaultCode = computer.createDefaultCode(nb);
         player.askPlayer();
         System.out.println("Code Ordi : "  + computerDefaultCode);
         newChaine = computerDefaultCode;
-        while(nbLife!=0){
-            String chaine = this.testDefense(newChaine);
-            newChaine = this.incrementCode(chaine, newChaine);
-            System.out.println("New computer combinaison : " + newChaine);
+        while(nbTry!=4){
+            String chaine = this.askPlayer();
+            newChaine = this.BinarySearch(nbTry, chaine, newChaine);
             if(this.isFinish(chaine)){
                 System.out.println("I win");
                 return;
             }
-            nbLife -=1;
+            System.out.println("New computer combinaison : " + newChaine);
+            nbTry +=1;
         }
         System.out.println("You win");
     }
 
-    private String testDefense(String code){
-        String symbole = "";
-        String symboleCode = "";
-        for (int i = 0; i<code.length(); i++) {
-            if (code.charAt(i) < player.getCombinaison().charAt(i)) {
-                symbole = "+";
-            } else if (code.charAt(i) > player.getCombinaison().charAt(i)) {
-                symbole = "-";
-            } else {
-                symbole = "=";
-            }
-            symboleCode += symbole;
-        }
-        return(symboleCode);
+    // Ask the player for a response in symbole
+    private String askPlayer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Respond to the computer : ");
+        String response = sc.nextLine();
+        return response;
     }
 
+    // True if there are = on all characters
     private boolean isFinish(String Code){
         int longeurChaine = Code.length();
         int compteur = 0;
@@ -56,22 +51,30 @@ public class Defenser extends Player {
         return false;
     }
 
-    // Allow the computer to Attack the code.
-    private String incrementCode(String Code, String oldChaine){
-        int codeInt=0;
-        String newChaine="";
-        for(int i = 0; i<Code.length();i++){
-            if (Code.charAt(i)=='+'){
-                codeInt = Character.getNumericValue(oldChaine.charAt(i));
-                codeInt +=1;
-            }else if(Code.charAt(i)=='-'){
-                codeInt = Character.getNumericValue(oldChaine.charAt(i));
-                codeInt -= 1;
-            }else{
-                codeInt = Character.getNumericValue(oldChaine.charAt(i));
+    //Recherche dichotomique pour la valeur cachée
+    private String BinarySearch(int nbCoup, String symbole, String oldChaine){
+        int val = 0;
+        String newChaine ="";
+        for(int i=0; i<symbole.length();i++){
+            val = Character.getNumericValue(oldChaine.charAt(i));
+            switch(nbCoup) {
+                case 1:
+                    if(symbole.charAt(i)=='+'){
+                        val +=2;
+                    }else if(symbole.charAt(i)=='-'){
+                        val-=2;
+                    }
+                    break;
+                case 2:
+                case 3:
+                    if(symbole.charAt(i)=='+'){
+                        val +=1;
+                    }else if(symbole.charAt(i)=='-'){
+                        val-=1;
+                    }
             }
-            newChaine += codeInt;
+            newChaine += val;
         }
-        return (newChaine);
+        return(newChaine);
     }
 }

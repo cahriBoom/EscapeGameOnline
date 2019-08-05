@@ -2,8 +2,9 @@ import java.util.Random;
 
 public class Board {
 
-    private Defenser computer;
-    private Challenger player;
+    private Defenser computer = new Defenser();
+    private Challenger player = new Challenger();
+    private Affichage a = new Affichage();
 
     // Set the game in Duel Mode
     public void Duel(int nb){
@@ -14,7 +15,13 @@ public class Board {
 
     }
 
-    private void Turn(){
-
+    private void Turn(String CodeComp, String codePlay){
+        int nbTurn = 0;
+        if (nbTurn==0){
+            // Joueur propose       ("1234")
+            // Ordi réponds         ("++-=")
+            // Ordi propose RANDOM  ("8651")
+            // Joueur réponds       ("++--")
+        }
     }
 }

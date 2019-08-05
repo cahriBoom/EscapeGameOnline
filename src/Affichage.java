@@ -32,4 +32,8 @@ public class Affichage {
                 System.out.println("Choose a number between 1 and 4");
         }
     }
+
+    public void affichageValeur(){
+
+    }
 }

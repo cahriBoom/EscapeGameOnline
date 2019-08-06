@@ -33,18 +33,31 @@ public class Player {
         return code;
     }
 
-    // Ask the player his response for cracking the code
-    /*public void askPlayer() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Tap your code : ");
-        String choosenNumbers = sc.nextLine();
-        this.setCombinaison(choosenNumbers);
-    }*/
     // Test each values of the board.
     public void printCode() {
         String combiPlayer = this.getCombinaison();
         System.out.print(combiPlayer);
 
     }
+
+
+    // True if there are = on all characters
+    public boolean isFinished(String Code){
+        int longueurChaine = Code.length();
+        int compteur = 0;
+        for (int i=0; i<longueurChaine;i++){
+            if (Code.charAt(i)=='='){
+                compteur +=1;
+            }else{
+                compteur =0;
+            }
+        }
+        if(compteur==longueurChaine){
+            return true;
+        }
+        return false;
+    }
+
+
 }
 

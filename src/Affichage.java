@@ -6,9 +6,9 @@ public class Affichage {
 
     //Print and navigate in the main menu
     public void printMainMenu(int nb){
-        Challenger challenger = new Challenger();
-        Defenser defenser = new Defenser();
-        Board gameMode = new Board();
+        //Challenger challenger = new Challenger();
+        //Defenser defenser = new Defenser();
+        GameMode gameMode = new GameMode();
         Scanner sc = new Scanner(System.in);
         boolean replay = true;
         System.out.println("1- Challenger");
@@ -20,7 +20,8 @@ public class Affichage {
         switch(entryMenu) {
             case 1:
                 while(replay){
-                    challenger.ChallengerMode(nb);
+                    //challenger.ChallengerMode(nb);
+                    gameMode.Challenger(nb);
                     replay=this.askToReplay();
                     this.clearScreen();
                 }
@@ -28,13 +29,14 @@ public class Affichage {
                 break;
             case 2:
                 while(replay){
-                    defenser.Defense(nb);
+                    //defenser.Defense(nb);
+                    gameMode.Defense(nb);
                     replay=this.askToReplay();
                     this.clearScreen();
                 }
                 this.printMainMenu(nb);
                 break;
-            case 3:
+            case 3:   // mode Duel
                 while(replay){
                     gameMode.Duel(nb);
                     replay = this.askToReplay();

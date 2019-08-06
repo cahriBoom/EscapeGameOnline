@@ -25,27 +25,31 @@ public class Challenger extends Player {
 
 
     // Check if the answer is the same as the code.
-    private void testAnswer() {
+    public String testAnswer() {
         System.out.print("Response : ");
-
+        String chaineSymbole = "";
+        char symbole;
         if(computer.getCombinaison().length()==player.getCombinaison().length()){
             for (int i = 0; i<computer.getCombinaison().length(); i++){
                 if(computer.getCombinaison().charAt(i)>player.getCombinaison().charAt(i)){
-                    System.out.print('+');
+                    symbole = '+';
                 }else if(computer.getCombinaison().charAt(i)<player.getCombinaison().charAt(i)){
-                    System.out.print('-');
+                    symbole = '-';
                 }else{
-                    System.out.print('=');
+                    symbole = '=';
                 }
+                chaineSymbole += symbole;
             }
-            System.out.println(" ");
+            System.out.println(chaineSymbole);
+            return (chaineSymbole);
         }else{
             System.out.println("Not enough numbers !");
+            return(chaineSymbole);
         }
     }
 
     // Test how many numbers remain before the player win
-    private int testNbCharRestant(){
+    /*private int testNbCharRestant(){
         int longeurString = computer.getCombinaison().length();
         int numberRestant = longeurString;
         for(int i =0; i<longeurString; i++){
@@ -54,17 +58,34 @@ public class Challenger extends Player {
             }
         }
         return numberRestant;
+    }*/
+    private boolean testnbCharValide(String chaine){
+        int compteur = 0;
+        for(int i = 0; i<chaine.length();i++){
+            if(chaine.charAt(i)=='='){
+                compteur += 1;
+            }else{
+                compteur += 0;
+            }
+        }
+        if(compteur!=computer.getCombinaison().length()){
+            return false;
+        }else{
+            return true;
+        }
     }
+
 
     // Repeat each turn until somebody win the game
     private void turnRepeatChallengerMode(){
         int nbTry = 3;
-        int numbRestant;
+        boolean isFinish;
+        String repComputer;
         while(nbTry != 0){
             this.askPlayer();
-            this.testAnswer();
-            numbRestant = this.testNbCharRestant();
-            if (numbRestant==0){
+            repComputer = this.testAnswer();
+            isFinish = testnbCharValide(repComputer);
+            if (isFinish){
                 System.out.println("You win!");
                 return;
             }

@@ -27,7 +27,7 @@ public class Defenser extends Player {
     }
 
     // Ask the player for a response in symbole
-    private String askPlayer() {
+    public String askPlayer() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Respond to the computer : ");
         String response = sc.nextLine();

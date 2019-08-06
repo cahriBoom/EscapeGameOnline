@@ -11,17 +11,15 @@ public class Board {
         computer.createBoard(nb);
         player.askPlayer();
         String codeComputer = computer.getCombinaison();
-        String codePlayer = player.getCombinaison();
 
     }
 
-    private void Turn(String CodeComp, String codePlay){
-        int nbTurn = 0;
-        if (nbTurn==0){
-            // Joueur propose       ("1234")
-            // Ordi réponds         ("++-=")
-            // Ordi propose RANDOM  ("8651")
-            // Joueur réponds       ("++--")
-        }
+    private void Turn(String CodeComp){
+        String repComputer = player.testAnswer();
+        String repPlayer;
+        System.out.println("Computer response : " + repComputer);
+        System.out.println("Computer proposition : " + CodeComp);
+        repPlayer = computer.askPlayer();
+        //joueur Propose
     }
 }

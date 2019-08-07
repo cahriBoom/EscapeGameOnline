@@ -14,7 +14,7 @@ public class GameMode {
             System.out.println("\nTour numéro : " + nbTry);
             System.out.println("C'est à vous de jouer");
             System.out.println("---------------------");
-            String humanProposedCode = human.askPlayerNewCode();
+            String humanProposedCode = human.askPlayerNewCode(nb);
             computerAswerSymbols = computer.testAnswer(humanProposedCode);
 
             if(human.isFinished(computerAswerSymbols)){
@@ -33,14 +33,14 @@ public class GameMode {
 
     // set the game in Defense mode
     public void Defense(int nb){
-        human.askPlayerSecretCombinaison();
+        human.askPlayerSecretCombinaison(nb);
         String computerProposedCombinaison = computer.createDefaultCode(nb);
         int nbTry =1;
         while (nbTry<=3){
             System.out.println("\nC'est à l'ordinateur de jouer");
             System.out.println("-----------------------------");
             System.out.println("Proposition de l'ordinateur : " + computerProposedCombinaison);
-            String chaine = human.askPlayerSymbols();
+            String chaine = human.askPlayerSymbols(nb);
             computerProposedCombinaison = computer.BinarySearch(nbTry, chaine, computerProposedCombinaison);
             nbTry+=1;
             if(computer.isFinished(chaine)){
@@ -59,7 +59,7 @@ public class GameMode {
     public void Duel(int nb){
         computer.createSecretCombinaison(nb);
         String computerProposedCombinaison = computer.createDefaultCode(nb);
-        human.askPlayerSecretCombinaison();
+        human.askPlayerSecretCombinaison(nb);
 
         // loop until a player wins
         int numTry = 1;
@@ -69,7 +69,7 @@ public class GameMode {
             System.out.println("C'est à vous de jouer");
             System.out.println("---------------------");
             String humanProposedCode;
-            humanProposedCode = human.askPlayerNewCode();
+            humanProposedCode = human.askPlayerNewCode(nb);
             String computerAnswerSymbols;
             computerAnswerSymbols = computer.testAnswer(humanProposedCode);
             if(human.isFinished(computerAnswerSymbols)){
@@ -83,7 +83,7 @@ public class GameMode {
             System.out.println("C'est à l'ordinateur de jouer");
             System.out.println("-----------------------------");
             System.out.println("   Proposition de l'ordinateur : " + computerProposedCombinaison);
-            String chaine = human.askPlayerSymbols();
+            String chaine = human.askPlayerSymbols(nb);
             computerProposedCombinaison = computer.BinarySearch(numTry, chaine, computerProposedCombinaison);
             if(computer.isFinished(chaine)){
                 System.out.println("\n++++++++++++++++++++++++");

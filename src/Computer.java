@@ -13,6 +13,14 @@ public class Computer extends Player {
         }
     }
 
+    public String createDefaultCode(int nb){
+        String code="";
+        while(nb !=0){
+            code +=5;
+            nb-=1;
+        }
+        return code;
+    }
 
     // Check if the answer is the same as the code (mode Challenger)
     public String testAnswer(String proposedHumanCode) {
@@ -64,7 +72,4 @@ public class Computer extends Player {
         }
         return(newChaine);
     }
-
-
-
 }

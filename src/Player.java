@@ -13,34 +13,6 @@ public class Player {
         this.combinaison = newCombinaison;
     }
 
-    // Create a board with X random number.
-    public void createBoard(int nb) {
-        Random randomGenerator = new Random();
-        String combiRandom = "";
-        for (int i = 0; i < nb; i++) {
-            int randomInt = randomGenerator.nextInt(9);
-            combiRandom += Integer.toString(randomInt);
-            this.setCombinaison(combiRandom);
-        }
-    }
-
-    public String createDefaultCode(int nb){
-        String code="";
-        while(nb !=0){
-            code +=5;
-            nb-=1;
-        }
-        return code;
-    }
-
-    // Test each values of the board.
-    public void printCode() {
-        String combiPlayer = this.getCombinaison();
-        System.out.print(combiPlayer);
-
-    }
-
-
     // True if there are = on all characters
     public boolean isFinished(String Code){
         int longueurChaine = Code.length();
@@ -57,7 +29,5 @@ public class Player {
         }
         return false;
     }
-
-
 }
 

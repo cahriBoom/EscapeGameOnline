@@ -1,14 +1,13 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Player {
+public class Player implements Entity{
 
     private String combinaison = "";
 
     //Getter and Setter
-    public String getCombinaison(){
-        return (this.combinaison);
-    }
+    @Override
+    public String getCombinaison(){ return (this.combinaison); }
     public void setCombinaison(String newCombinaison){
         this.combinaison = newCombinaison;
     }

@@ -1,0 +1,8 @@
+INFO    2019-08-08 15:10:03,775 [main] GameMode  - Player proposed : 1486
+INFO    2019-08-08 15:10:03,779 [main] GameMode  - Computer responds : -+--
+INFO    2019-08-08 15:29:55,981 [main] GameMode  - Player proposed : 5555
+INFO    2019-08-08 15:29:55,985 [main] GameMode  - Computer responds : -+++
+INFO    2019-08-08 15:30:26,573 [main] GameMode  - Player proposed : 1234
+INFO    2019-08-08 15:30:26,578 [main] GameMode  - Computer responds : +++=
+INFO    2019-08-08 15:35:16,688 [main] GameMode  - Player proposed : 12345
+INFO    2019-08-08 15:35:16,698 [main] GameMode  - Computer responds : ++-+=

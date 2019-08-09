@@ -1,17 +1,18 @@
-import java.util.Random;
-import java.util.Scanner;
 
-public class Player implements Entity{
+public abstract class Player implements Entity{
 
     private String combinaison = "";
 
     //Getter and Setter
     @Override
     public String getCombinaison(){ return (this.combinaison); }
+
+    @Override
     public void setCombinaison(String newCombinaison){
         this.combinaison = newCombinaison;
     }
 
+    @Override
     // True if there are = on all characters
     public boolean isFinished(String Code){
         int longueurChaine = Code.length();

@@ -15,7 +15,7 @@ public class GameMode {
     // Set the game in challenger mode
     public void Challenger(int nb, boolean dev){
         computer.createSecretCombinaison(nb);
-        String computerAswerSymbols;
+        String computerAnswerSymbols;
         // Configuration Log4j
         PropertyConfigurator.configure(log4jConfigFile);
 
@@ -32,10 +32,10 @@ public class GameMode {
             System.out.println("---------------------");
             String humanProposedCode = human.askPlayerNewCode(nb);
             logger.info("Player proposed : " + humanProposedCode);
-            computerAswerSymbols = computer.testAnswer(humanProposedCode);
-            logger.info("Computer responds : " + computerAswerSymbols);
+            computerAnswerSymbols = computer.testAnswer(humanProposedCode);
+            logger.info("Computer responds : " + computerAnswerSymbols);
 
-            if(human.isFinished(computerAswerSymbols)){
+            if(human.isFinished(computerAnswerSymbols)){
                 System.out.println("\n+++++++++++++++++++");
                 System.out.println("Vous avez gagné !!!");
                 System.out.println("+++++++++++++++++++");

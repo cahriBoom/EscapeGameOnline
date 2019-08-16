@@ -1,3 +1,6 @@
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Properties;
@@ -18,11 +21,14 @@ public class Affichage {
 
     // Properties File
     private static String propertiesFile = System.getProperty("user.dir") + File.separator + "config.properties";
+    private static Logger logger = Logger.getLogger(Affichage.class);
+    private static String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.properties";
 
     //Print and navigate in the main menu
     public void printMainMenu(){
         GameMode gameMode = new GameMode();
         Scanner sc = new Scanner(System.in);
+        PropertyConfigurator.configure(log4jConfigFile);
 
         //Read the parameter file.
         try (InputStream input = new FileInputStream(propertiesFile)) {
@@ -83,11 +89,13 @@ public class Affichage {
                     return;
                 default:
                     System.out.println("Choose a number between 1 and 4");
+                    logger.error("ERROR USER TYPE : " + entryMenu);
                     this.clearScreen();
                     this.printMainMenu();
             }
         }catch (InputMismatchException e){
             System.out.println("Please type only integer");
+            logger.error("ERROR: NOT INTEGER");
             this.printMainMenu();
         }
     }

@@ -36,3 +36,33 @@ INFO    2019-08-12 12:29:17,881 [main] GameMode  - Computer proposed 5555
 INFO    2019-08-12 12:29:31,185 [main] GameMode  - Player responds ++--
 ERROR   2019-08-12 14:24:42,497 [main] Affichage  - ERROR: NOT INTEGER
 ERROR   2019-08-12 14:24:49,422 [main] Affichage  - ERROR USER TYPE : 123587
+INFO    2019-08-18 14:05:37,787 [main] GameMode  - Player proposed : 5555
+INFO    2019-08-18 14:05:37,806 [main] GameMode  - Computer responds : +--+
+INFO    2019-08-18 14:05:44,862 [main] GameMode  - Player proposed : 7337
+INFO    2019-08-18 14:05:44,862 [main] GameMode  - Computer responds : ---+
+INFO    2019-08-18 14:05:59,056 [main] GameMode  - Player proposed : 6228
+INFO    2019-08-18 14:05:59,056 [main] GameMode  - Computer responds : ==-=
+INFO    2019-08-18 14:06:25,068 [main] GameMode  - computer proposed : 5555
+INFO    2019-08-18 14:06:47,355 [main] GameMode  - Player respond : +-=+
+INFO    2019-08-18 14:06:47,355 [main] GameMode  - computer proposed : 7357
+INFO    2019-08-18 14:07:20,636 [main] GameMode  - Player respond : =+=-
+INFO    2019-08-18 14:07:20,636 [main] GameMode  - computer proposed : 7456
+INFO    2019-08-18 14:07:29,943 [main] GameMode  - Player respond : ====
+INFO    2019-08-18 14:07:52,762 [main] GameMode  - Player proposed : 5555
+INFO    2019-08-18 14:07:52,763 [main] GameMode  - Computer responds : --+-
+INFO    2019-08-18 14:07:52,763 [main] GameMode  - Computer proposed 5555
+INFO    2019-08-18 14:07:58,874 [main] GameMode  - Player responds ====
+INFO    2019-08-18 14:08:16,082 [main] GameMode  - Player proposed : 1111
+INFO    2019-08-18 14:08:16,082 [main] GameMode  - Computer responds : ++==
+INFO    2019-08-18 14:08:16,082 [main] GameMode  - Computer proposed 5555
+INFO    2019-08-18 14:08:21,536 [main] GameMode  - Player responds ====
+INFO    2019-08-18 14:22:11,256 [main] GameMode  - Player proposed : ater
+INFO    2019-08-18 14:22:11,260 [main] GameMode  - Computer responds : ----
+INFO    2019-08-18 16:29:46,605 [main] GameMode  - Player proposed : 1234
+INFO    2019-08-18 16:29:46,610 [main] GameMode  - Computer responds : +++-
+INFO    2019-08-19 13:43:57,082 [main] GameMode  - Player proposed : 1234
+INFO    2019-08-19 13:43:57,121 [main] GameMode  - Computer responds : +++-
+INFO    2019-08-19 14:04:13,216 [main] GameMode  - Player proposed : 1234
+INFO    2019-08-19 14:04:13,220 [main] GameMode  - Computer responds : ++--
+INFO    2019-08-19 16:35:16,855 [main] GameMode  - Player proposed : 1234
+INFO    2019-08-19 16:35:16,860 [main] GameMode  - Computer responds : +=+-
